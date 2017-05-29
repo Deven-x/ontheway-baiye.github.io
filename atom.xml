@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-18T09:29:35.523Z</updated>
+  <updated>2017-05-29T03:42:54.619Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,97 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>移动端开发总结-布局篇</title>
+    <link href="http://yoursite.com/2017/05/29/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93-%E5%B8%83%E5%B1%80%E7%AF%87/"/>
+    <id>http://yoursite.com/2017/05/29/移动端开发总结-布局篇/</id>
+    <published>2017-05-29T03:41:41.000Z</published>
+    <updated>2017-05-29T03:42:54.619Z</updated>
+    
+    <content type="html"><![CDATA[<p>这周做了一个移动端的项目，在开发过程中，踩到了不少坑，也学到了不少东西。在此记录下来一些重要的东西。</p>
+<p>##一、单位<br>说到移动端，不得不提适配问题，大大小小的移动设备不但让做<a href="http://caibaojian/t/android" target="_blank" rel="external">Android</a>和<a href="http://caibaojian.com/t/ios" target="_blank" rel="external">ios</a>的难过，因为设备大小和浏览器的差异，现在也让前端开始头疼了，不过，方法总是比问题多，我们是革命的队伍，遇到问题就要上！<br>因为现如今市面上移动设备的分辨率大小不同，显然咱们常用的px单位在这个时候就有些不太灵光了，为此，<a href="http://caibaojian.com/t/css3" target="_blank" rel="external">css3</a>出了一个新单位——<a href="http://caibaojian.com/t/rem" target="_blank" rel="external">rem</a>，rem是移动端神器，它完美解决了分辨率的适配问题。</p>
+<a id="more"></a>
+<p>rem就是相对于根元素<html>的font-size来做计算,举个例子：</html></p>
+<pre><code>/*定义HTML根元素字体大小*/
+html{
+        font-size: 10px;
+}
+/*定义子元素，采用rem作为单位*/
+body{
+       width: 10rem;  /*相当于10*10px=100px*/
+       height: 10rem; /*相当于10*10px=100px*/
+       font-size: 1.4rem;  /*相当于1.4*10px=14px*/
+       border-radius: .5rem /*相当于0.5*10px=5px*/
+}
+</code></pre><p>像这样一个宽高各100px的box就出现了，很简单吧，发现没，有些像我们以前常用的em，不过rem是相对于根元素(<html>)的字体大小，em相对 于父元素的字体大小。</html></p>
+<p>虽然很简单，但是移动设备那么多，我们又怎么根据手机屏幕的分辨率不同，去设置<html>的字体大小呢？</html></p>
+<p>我知道的方法有2个：</p>
+<p>1）通过媒体查询</p>
+<pre><code>/*默认为20px*/
+html{
+    font-size: 20px;
+}
+
+/*判断宽度设置不同的Html font-size值去覆盖默认值*/
+@media only screen and (min-width: 320px) {
+html{
+       font-size: 10px;
+    }
+}
+@media only screen and (min-width: 375px) {
+html{
+       font-size: 16px;
+    }
+ }
+@media only screen and (min-width: 414px) {
+html{
+       font-size: 20px;
+    }
+ }
+</code></pre><p>像这样通过媒体查询的方式，只需要把常用的屏幕宽度考虑进去即可，能够满足大部分应用场景，不过这一做法不够严谨，处女座的你，怎么能满足呢？那就用js去设置fontSize吧！</p>
+<p>2）通过js计算</p>
+<pre><code> //设置fontSize
+var doc = document, win = window;
+function initFontSize () {
+    var docEl = doc.documentElement,
+    resizeEvt = &apos;orientationchange&apos; in window ? &apos;orientationchange&apos; : &apos;resize&apos;,
+    recalc = function() {
+        var clientWidth = docEl.clientWidth; 
+        //window.innerWidth;
+        if (!clientWidth) return;
+        fontSizeRate = (clientWidth / 375);
+        var baseFontSize = 10 * fontSizeRate;
+        docEl.style.fontSize = baseFontSize + &apos;px&apos;;
+    };
+
+    recalc();
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener(&apos;DOMcontentLoaded&apos;, recalc, false);
+};
+initFontSize();
+</code></pre><p>通过js设备的屏幕分辨率，可以计算出相应的字体的大小，这个方法可以适配所有屏幕的大小，这下就完美许多了。</p>
+<p>##二、使用<meta>标签中的viewport布局<br>有了rem单位还不够，得再加上viewport，如下：</p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, Initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;/&gt;
+</code></pre><p>其中width=device-width表示设备宽度，也可以写死；Initial-scale=1.0表示初始化缩放； minimum-scale=1.0, maximum-scale=1.0分别表示最大和最小缩放值；user-scalable=no表示不允许缩放。name=”viewport”这个是必须要有的，有了这个<meta>标签，页面就有那么点意思了。</p>
+<p>##三、弹性布局盒子布局<br>以前PC端布局方式通常会使用float、margin、padding等方式布局，这些方法不仅有繁琐的计算，而且在移动端还容易出错。现在移动端，有更好的选择，使用flexbox布局方式。</p>
+<p>一直以来这种布局方式都有兼容性问题，让前端同学想用，又不敢用，究其原因也就是即分不清它各个版本的编写规范和兼容性。值得惊喜的是，目前除了Opera mobile12，移动端的各大浏览器都是支持flexbox的旧版语法的，但不包含flex的wrap属性。所以可以大胆用，不用太担心。</p>
+<p>####需要注意的问题：</p>
+<p>a) 虽然移动端的各大浏览器都是支持flexbox的旧版语法的，但是还是得有兼容性写法;</p>
+<p>b) 在开发的时候，我发现在使用弹性盒子模型时，如果涉及到文字的时候需要注意，在li里写上“我们”和“我们的”，分别是两个字和三个字。会有不同的宽度而导致不均分，解决办法，如上面css所示，我设置了子元素width为5%（只有设置了li是统一的width就行，不一定需要是5%）就可以解决这个问题。</p>
+<p>##总结<br>移动端布局的问题就说到这，等后端做好接口然后开始绑定数据。不过移动端开发的问题远远不止，要想做好移动端，需要学习的还有很多。革命尚未成功，同志仍需努力啊。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这周做了一个移动端的项目，在开发过程中，踩到了不少坑，也学到了不少东西。在此记录下来一些重要的东西。&lt;/p&gt;
+&lt;p&gt;##一、单位&lt;br&gt;说到移动端，不得不提适配问题，大大小小的移动设备不但让做&lt;a href=&quot;http://caibaojian/t/android&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Android&lt;/a&gt;和&lt;a href=&quot;http://caibaojian.com/t/ios&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ios&lt;/a&gt;的难过，因为设备大小和浏览器的差异，现在也让前端开始头疼了，不过，方法总是比问题多，我们是革命的队伍，遇到问题就要上！&lt;br&gt;因为现如今市面上移动设备的分辨率大小不同，显然咱们常用的px单位在这个时候就有些不太灵光了，为此，&lt;a href=&quot;http://caibaojian.com/t/css3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;css3&lt;/a&gt;出了一个新单位——&lt;a href=&quot;http://caibaojian.com/t/rem&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;rem&lt;/a&gt;，rem是移动端神器，它完美解决了分辨率的适配问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>第一篇博客，写点什么呢？</title>

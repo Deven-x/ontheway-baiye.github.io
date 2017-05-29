@@ -79,6 +79,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="Bitter Travel" type="application/atom+xml" />
 
@@ -92,15 +94,16 @@
 
 
 
-<meta name="description" content="Code makes life interesting">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bitter Travel">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="这周做了一个移动端的项目，在开发过程中，踩到了不少坑，也学到了不少东西。在此记录下来一些重要的东西。 ##一、单位说到移动端，不得不提适配问题，大大小小的移动设备不但让做Android和ios的难过，因为设备大小和浏览器的差异，现在也让前端开始头疼了，不过，方法总是比问题多，我们是革命的队伍，遇到问题就要上！因为现如今市面上移动设备的分辨率大小不同，显然咱们常用的px单位在这个时候就有些不太灵光了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端开发总结-布局篇">
+<meta property="og:url" content="http://yoursite.com/2017/05/29/移动端开发总结-布局篇/index.html">
 <meta property="og:site_name" content="Bitter Travel">
-<meta property="og:description" content="Code makes life interesting">
+<meta property="og:description" content="这周做了一个移动端的项目，在开发过程中，踩到了不少坑，也学到了不少东西。在此记录下来一些重要的东西。 ##一、单位说到移动端，不得不提适配问题，大大小小的移动设备不但让做Android和ios的难过，因为设备大小和浏览器的差异，现在也让前端开始头疼了，不过，方法总是比问题多，我们是革命的队伍，遇到问题就要上！因为现如今市面上移动设备的分辨率大小不同，显然咱们常用的px单位在这个时候就有些不太灵光了">
+<meta property="og:updated_time" content="2017-05-29T03:42:54.619Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bitter Travel">
-<meta name="twitter:description" content="Code makes life interesting">
+<meta name="twitter:title" content="移动端开发总结-布局篇">
+<meta name="twitter:description" content="这周做了一个移动端的项目，在开发过程中，踩到了不少坑，也学到了不少东西。在此记录下来一些重要的东西。 ##一、单位说到移动端，不得不提适配问题，大大小小的移动设备不但让做Android和ios的难过，因为设备大小和浏览器的差异，现在也让前端开始头疼了，不过，方法总是比问题多，我们是革命的队伍，遇到问题就要上！因为现如今市面上移动设备的分辨率大小不同，显然咱们常用的px单位在这个时候就有些不太灵光了">
 
 
 
@@ -128,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/29/移动端开发总结-布局篇/"/>
 
 
 
 
 
-  <title>Bitter Travel</title>
+  <title>移动端开发总结-布局篇 | Bitter Travel</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -160,9 +163,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,9 +246,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -273,9 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/29/移动端开发总结-布局篇/" itemprop="url">移动端开发总结-布局篇</a></h1>
+          <h1 class="post-title" itemprop="name headline">移动端开发总结-布局篇</h1>
         
 
         <div class="post-meta">
@@ -322,29 +321,100 @@
       
 
       
-        
-          <p>这周做了一个移动端的项目，在开发过程中，踩到了不少坑，也学到了不少东西。在此记录下来一些重要的东西。</p>
+        <p>这周做了一个移动端的项目，在开发过程中，踩到了不少坑，也学到了不少东西。在此记录下来一些重要的东西。</p>
 <p>##一、单位<br>说到移动端，不得不提适配问题，大大小小的移动设备不但让做<a href="http://caibaojian/t/android" target="_blank" rel="external">Android</a>和<a href="http://caibaojian.com/t/ios" target="_blank" rel="external">ios</a>的难过，因为设备大小和浏览器的差异，现在也让前端开始头疼了，不过，方法总是比问题多，我们是革命的队伍，遇到问题就要上！<br>因为现如今市面上移动设备的分辨率大小不同，显然咱们常用的px单位在这个时候就有些不太灵光了，为此，<a href="http://caibaojian.com/t/css3" target="_blank" rel="external">css3</a>出了一个新单位——<a href="http://caibaojian.com/t/rem" target="_blank" rel="external">rem</a>，rem是移动端神器，它完美解决了分辨率的适配问题。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/29/移动端开发总结-布局篇/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<a id="more"></a>
+<p>rem就是相对于根元素<html>的font-size来做计算,举个例子：</html></p>
+<pre><code>/*定义HTML根元素字体大小*/
+html{
+        font-size: 10px;
+}
+/*定义子元素，采用rem作为单位*/
+body{
+       width: 10rem;  /*相当于10*10px=100px*/
+       height: 10rem; /*相当于10*10px=100px*/
+       font-size: 1.4rem;  /*相当于1.4*10px=14px*/
+       border-radius: .5rem /*相当于0.5*10px=5px*/
+}
+</code></pre><p>像这样一个宽高各100px的box就出现了，很简单吧，发现没，有些像我们以前常用的em，不过rem是相对于根元素(<html>)的字体大小，em相对 于父元素的字体大小。</html></p>
+<p>虽然很简单，但是移动设备那么多，我们又怎么根据手机屏幕的分辨率不同，去设置<html>的字体大小呢？</html></p>
+<p>我知道的方法有2个：</p>
+<p>1）通过媒体查询</p>
+<pre><code>/*默认为20px*/
+html{
+    font-size: 20px;
+}
+
+/*判断宽度设置不同的Html font-size值去覆盖默认值*/
+@media only screen and (min-width: 320px) {
+html{
+       font-size: 10px;
+    }
+}
+@media only screen and (min-width: 375px) {
+html{
+       font-size: 16px;
+    }
+ }
+@media only screen and (min-width: 414px) {
+html{
+       font-size: 20px;
+    }
+ }
+</code></pre><p>像这样通过媒体查询的方式，只需要把常用的屏幕宽度考虑进去即可，能够满足大部分应用场景，不过这一做法不够严谨，处女座的你，怎么能满足呢？那就用js去设置fontSize吧！</p>
+<p>2）通过js计算</p>
+<pre><code> //设置fontSize
+var doc = document, win = window;
+function initFontSize () {
+    var docEl = doc.documentElement,
+    resizeEvt = &apos;orientationchange&apos; in window ? &apos;orientationchange&apos; : &apos;resize&apos;,
+    recalc = function() {
+        var clientWidth = docEl.clientWidth; 
+        //window.innerWidth;
+        if (!clientWidth) return;
+        fontSizeRate = (clientWidth / 375);
+        var baseFontSize = 10 * fontSizeRate;
+        docEl.style.fontSize = baseFontSize + &apos;px&apos;;
+    };
+
+    recalc();
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener(&apos;DOMcontentLoaded&apos;, recalc, false);
+};
+initFontSize();
+</code></pre><p>通过js设备的屏幕分辨率，可以计算出相应的字体的大小，这个方法可以适配所有屏幕的大小，这下就完美许多了。</p>
+<p>##二、使用<meta>标签中的viewport布局<br>有了rem单位还不够，得再加上viewport，如下：</p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, Initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;/&gt;
+</code></pre><p>其中width=device-width表示设备宽度，也可以写死；Initial-scale=1.0表示初始化缩放； minimum-scale=1.0, maximum-scale=1.0分别表示最大和最小缩放值；user-scalable=no表示不允许缩放。name=”viewport”这个是必须要有的，有了这个<meta>标签，页面就有那么点意思了。</p>
+<p>##三、弹性布局盒子布局<br>以前PC端布局方式通常会使用float、margin、padding等方式布局，这些方法不仅有繁琐的计算，而且在移动端还容易出错。现在移动端，有更好的选择，使用flexbox布局方式。</p>
+<p>一直以来这种布局方式都有兼容性问题，让前端同学想用，又不敢用，究其原因也就是即分不清它各个版本的编写规范和兼容性。值得惊喜的是，目前除了Opera mobile12，移动端的各大浏览器都是支持flexbox的旧版语法的，但不包含flex的wrap属性。所以可以大胆用，不用太担心。</p>
+<p>####需要注意的问题：</p>
+<p>a) 虽然移动端的各大浏览器都是支持flexbox的旧版语法的，但是还是得有兼容性写法;</p>
+<p>b) 在开发的时候，我发现在使用弹性盒子模型时，如果涉及到文字的时候需要注意，在li里写上“我们”和“我们的”，分别是两个字和三个字。会有不同的宽度而导致不均分，解决办法，如上面css所示，我设置了子元素width为5%（只有设置了li是统一的width就行，不一定需要是5%）就可以解决这个问题。</p>
+<p>##总结<br>移动端布局的问题就说到这，等后端做好接口然后开始绑定数据。不过移动端开发的问题远远不止，要想做好移动端，需要学习的还有很多。革命尚未成功，同志仍需努力啊。</p>
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -352,137 +422,38 @@
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/18/my-first-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="白夜">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bitter Travel">
-    </span>
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/18/my-first-blog/" itemprop="url">第一篇博客，写点什么呢？</a></h1>
-        
+      
 
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-18T17:16:37+08:00">
-                2017-05-18
-              </time>
+              <a href="/2017/05/18/my-first-blog/" rel="next" title="第一篇博客，写点什么呢？">
+                <i class="fa fa-chevron-left"></i> 第一篇博客，写点什么呢？
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="为什么要写博客"><a href="#为什么要写博客" class="headerlink" title="为什么要写博客"></a>为什么要写博客</h2><p>自从上年11月份转到IT这个行业以来，一直想做一个属于自己的网站。主要是想记录下自己碰到的技术难题和解决办法以便更好地去学习和工作，同时还可以记录下自己的成长经历，以后看看也会有所感触吧。更重要的是还可以拿它来装个逼，哈哈。但是老是控制不住自己的懒癌发作，一直拖到现在才搞出来，不管怎么样也算有个自己的小窝。希望以后能坚持来更新文章。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/18/my-first-blog/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -490,6 +461,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -690,6 +665,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
